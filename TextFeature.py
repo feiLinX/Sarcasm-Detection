@@ -21,11 +21,12 @@ class ExtractTextFeature(torch.nn.Module):
         # dropout
         self.dropout=torch.nn.Dropout(dropout_rate)
 
-    def forward(self, input,guidence ):
+    def forward(self, input, guidence):
         embedded=self.embedding(input).view(-1, self.text_length, self.embedding_size)
 
         if(guidence is not None):
             # early fusion
+            # guidance is the attribute feature vector
             hidden_init=torch.stack([torch.relu(self.Linear_1(guidence)),torch.relu(self.Linear_2(guidence))],dim=0)
             cell_init=torch.stack([torch.relu(self.Linear_3(guidence)),torch.relu(self.Linear_4(guidence))],dim=0)
             output,_=self.biLSTM(embedded,(hidden_init,cell_init))

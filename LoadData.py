@@ -12,7 +12,7 @@ import pickle
 
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-WORKING_PATH="E:/PythonWorkplace/CSE8803/pytorch-multimodal_sarcasm_detection"
+WORKING_PATH=""
 TEXT_LENGTH=75
 TEXT_HIDDEN=256
 """

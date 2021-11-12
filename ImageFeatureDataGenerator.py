@@ -12,7 +12,7 @@ import PIL
 import pickle
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-WORKING_PATH="E:/PythonWorkplace/CSE8803/pytorch-multimodal_sarcasm_detection"
+WORKING_PATH=""
 TEXT_LENGTH=75
 TEXT_HIDDEN=256
 """
@@ -44,7 +44,7 @@ data_set=load_data()
 """
 load image data
 """
-image_feature_folder="image_feature_data_temp"
+image_feature_folder="image_feature_data"
 # pretrain dataloader
 class pretrain_data_set(Dataset):
     def __init__(self, data):
